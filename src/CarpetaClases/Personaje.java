@@ -12,20 +12,25 @@ import static java.lang.Math.random;
  */
 public class Personaje {
     String id;
+    int Idnumerico;
+    int Prioridad;
     int Contador;
     int Vida;
     int Striking;
     int Fuerza;
     int Grappling;
     int Global;
+    String Empresa;
 
-    public Personaje() {
+    public Personaje(int ID, String Empresa) {
         this.Contador = 0;
         this.Vida = 0;
         this.Striking = 0;
         this.Fuerza = 0;
         this.Grappling = 0;
         this.Global = 0;
+        this.Empresa = Empresa;
+        this.id = "" + Empresa + ID;
     }
     
     public void AsignacionCalidad(){
@@ -68,15 +73,22 @@ public class Personaje {
     }
     
     if(cont == 3 || cont == 4){
-        System.out.println("Prioridad 1");
+       Prioridad = 1;
     }
     else if(cont == 2){
-        System.out.println("Prioridad 2");
+        Prioridad = 2;
     }
     else if(cont == 0 || cont == 1){
-        System.out.println("Prioridad 2");
+        Prioridad = 3;
     }
     }
     
-    
+    public void ActualizarContador(){
+        if (Contador < 7) {
+            Contador++;
+        } else {
+            Contador = 0; 
+            Prioridad--;
+        }
+    }
 }
