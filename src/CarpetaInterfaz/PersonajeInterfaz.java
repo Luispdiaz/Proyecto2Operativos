@@ -4,9 +4,6 @@
  */
 package CarpetaInterfaz;
 
-import CarpetaClases.Personaje;
-import javax.swing.JLabel;
-
 /**
  *
  * @author Luisp
@@ -19,24 +16,6 @@ public class PersonajeInterfaz extends javax.swing.JPanel {
     public PersonajeInterfaz() {
         initComponents();
     }
-    
-    public void ActualizarPersonjaeInterfaz(Personaje Personaje12) {
-        this.getIndicadorResultado().setEnabled(false);
-        
-       
-    }
-
-    public JLabel getFoto() {
-        return Foto;
-    }
-
-    public JLabel getID() {
-        return ID;
-    }
-
-    public JLabel getIndicadorResultado() {
-        return IndicadorResultado;
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,24 +27,32 @@ public class PersonajeInterfaz extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        ID = new javax.swing.JLabel();
-        IndicadorResultado = new javax.swing.JLabel();
-        Foto = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel2.setText("Nombre:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
+
         jLabel1.setText("ID: ");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, -1, -1));
 
-        ID.setText("---");
-        jPanel1.add(ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
+        jLabel3.setText("---");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
 
-        IndicadorResultado.setText("Indicador Resultado");
-        jPanel1.add(IndicadorResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 150, 40));
+        jLabel4.setText("---");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, -1, -1));
 
-        Foto.setText("Fotos");
-        jPanel1.add(Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 150, 140));
+        jLabel5.setText("Indicador Resultado");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 150, 40));
+
+        jLabel6.setText("Fotos");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 150, 120));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -81,10 +68,12 @@ public class PersonajeInterfaz extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Foto;
-    private javax.swing.JLabel ID;
-    private javax.swing.JLabel IndicadorResultado;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

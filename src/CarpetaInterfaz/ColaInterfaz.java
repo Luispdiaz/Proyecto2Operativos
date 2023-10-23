@@ -35,10 +35,10 @@ public final class ColaInterfaz extends javax.swing.JPanel {
         return Titulo;
     }
 
+
     
-    
-    public void CambiarColaInterfaz(Cola Cola1){
-        this.ContenidoCola.setText(Cola1.StringInterfaz());
+    public void CambiarColaInterfaz(Cola chaptersQueue){
+        //this.queueLabel.setText(chaptersQueue.buildStringForUiQueue());
     }
 
     /**

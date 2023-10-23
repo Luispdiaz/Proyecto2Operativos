@@ -5,8 +5,6 @@
 package CarpetaInterfaz;
 ;
 
-import javax.swing.JLabel;
-
 /**
  *
  * @author Luisp
@@ -30,35 +28,37 @@ public class Interfaz extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        ColaN1 = new CarpetaInterfaz.ColaInterfaz();
-        ColaRecuperacionN = new CarpetaInterfaz.ColaInterfaz();
-        ColaN2 = new CarpetaInterfaz.ColaInterfaz();
-        ColaN3 = new CarpetaInterfaz.ColaInterfaz();
-        ColaS1 = new CarpetaInterfaz.ColaInterfaz();
-        ColaRecuperacionS = new CarpetaInterfaz.ColaInterfaz();
-        ColaS2 = new CarpetaInterfaz.ColaInterfaz();
-        ColaS3 = new CarpetaInterfaz.ColaInterfaz();
+        colaInterfaz5 = new CarpetaInterfaz.ColaInterfaz();
+        colaInterfaz6 = new CarpetaInterfaz.ColaInterfaz();
+        colaInterfaz7 = new CarpetaInterfaz.ColaInterfaz();
+        colaInterfaz8 = new CarpetaInterfaz.ColaInterfaz();
+        colaInterfaz9 = new CarpetaInterfaz.ColaInterfaz();
+        colaInterfaz10 = new CarpetaInterfaz.ColaInterfaz();
+        colaInterfaz11 = new CarpetaInterfaz.ColaInterfaz();
+        colaInterfaz12 = new CarpetaInterfaz.ColaInterfaz();
+        personajeInterfaz1 = new CarpetaInterfaz.PersonajeInterfaz();
+        personajeInterfaz3 = new CarpetaInterfaz.PersonajeInterfaz();
         jSlider1 = new javax.swing.JSlider();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        EstadoIA = new javax.swing.JLabel();
-        PersonajeS = new CarpetaInterfaz.PersonajeInterfaz();
-        PersonajeN = new CarpetaInterfaz.PersonajeInterfaz();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(ColaN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
-        jPanel1.add(ColaRecuperacionN, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, -1, -1));
-        jPanel1.add(ColaN2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, -1, -1));
-        jPanel1.add(ColaN3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, -1, -1));
-        jPanel1.add(ColaS1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 40, -1, -1));
-        jPanel1.add(ColaRecuperacionS, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 400, -1, -1));
-        jPanel1.add(ColaS2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 160, -1, -1));
-        jPanel1.add(ColaS3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 280, -1, -1));
+        jPanel1.add(colaInterfaz5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
+        jPanel1.add(colaInterfaz6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, -1, -1));
+        jPanel1.add(colaInterfaz7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, -1, -1));
+        jPanel1.add(colaInterfaz8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, -1, -1));
+        jPanel1.add(colaInterfaz9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 40, -1, -1));
+        jPanel1.add(colaInterfaz10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 400, -1, -1));
+        jPanel1.add(colaInterfaz11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 160, -1, -1));
+        jPanel1.add(colaInterfaz12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 280, -1, -1));
+        jPanel1.add(personajeInterfaz1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 120, -1, -1));
+        jPanel1.add(personajeInterfaz3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 120, -1, -1));
 
         jSlider1.setMajorTickSpacing(1);
         jSlider1.setMaximum(21);
@@ -75,18 +75,16 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 530, 50, -1));
 
         jLabel2.setText("Peleas Ganadas:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 530, 100, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 530, 90, -1));
 
         jLabel3.setText("---");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 530, 50, -1));
 
         jLabel4.setText("Peleas Ganadas:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 530, 100, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 530, 90, -1));
 
-        EstadoIA.setText("Estado de la IA");
-        jPanel1.add(EstadoIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 400, 90, -1));
-        jPanel1.add(PersonajeS, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 100, -1, -1));
-        jPanel1.add(PersonajeN, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 100, -1, -1));
+        jLabel6.setText("Estado de la IA");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 400, 90, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1460, 580));
 
@@ -128,71 +126,23 @@ public class Interfaz extends javax.swing.JFrame {
         });
     }
 
-    public JLabel getEstadoIA() {
-        return EstadoIA;
-    }
-
-    public void setEstadoIA(String EstadoIA) {
-        this.getEstadoIA().setText(EstadoIA);
-    }
-
-    public PersonajeInterfaz getPersonajeN() {
-        return PersonajeN;
-    }
-
-    public PersonajeInterfaz getPersonajeS() {
-        return PersonajeS;
-    }
-
-    public ColaInterfaz getColaN1() {
-        return ColaN1;
-    }
-
-    public ColaInterfaz getColaN2() {
-        return ColaN2;
-    }
-
-    public ColaInterfaz getColaN3() {
-        return ColaN3;
-    }
-
-    public ColaInterfaz getColaRecuperacionN() {
-        return ColaRecuperacionN;
-    }
-
-    public ColaInterfaz getColaRecuperacionS() {
-        return ColaRecuperacionS;
-    }
-
-    public ColaInterfaz getColaS1() {
-        return ColaS1;
-    }
-
-    public ColaInterfaz getColaS2() {
-        return ColaS2;
-    }
-
-    public ColaInterfaz getColaS3() {
-        return ColaS3;
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private CarpetaInterfaz.ColaInterfaz ColaN1;
-    private CarpetaInterfaz.ColaInterfaz ColaN2;
-    private CarpetaInterfaz.ColaInterfaz ColaN3;
-    private CarpetaInterfaz.ColaInterfaz ColaRecuperacionN;
-    private CarpetaInterfaz.ColaInterfaz ColaRecuperacionS;
-    private CarpetaInterfaz.ColaInterfaz ColaS1;
-    private CarpetaInterfaz.ColaInterfaz ColaS2;
-    private CarpetaInterfaz.ColaInterfaz ColaS3;
-    private javax.swing.JLabel EstadoIA;
-    private CarpetaInterfaz.PersonajeInterfaz PersonajeN;
-    private CarpetaInterfaz.PersonajeInterfaz PersonajeS;
+    private CarpetaInterfaz.ColaInterfaz colaInterfaz10;
+    private CarpetaInterfaz.ColaInterfaz colaInterfaz11;
+    private CarpetaInterfaz.ColaInterfaz colaInterfaz12;
+    private CarpetaInterfaz.ColaInterfaz colaInterfaz5;
+    private CarpetaInterfaz.ColaInterfaz colaInterfaz6;
+    private CarpetaInterfaz.ColaInterfaz colaInterfaz7;
+    private CarpetaInterfaz.ColaInterfaz colaInterfaz8;
+    private CarpetaInterfaz.ColaInterfaz colaInterfaz9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSlider jSlider1;
+    private CarpetaInterfaz.PersonajeInterfaz personajeInterfaz1;
+    private CarpetaInterfaz.PersonajeInterfaz personajeInterfaz3;
     // End of variables declaration//GEN-END:variables
 }
