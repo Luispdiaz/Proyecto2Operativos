@@ -32,12 +32,37 @@ public class Personaje {
         this.Empresa = Empresa;
         this.id = "" + Empresa + ID;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getEmpresa() {
+        return Empresa;
+    }
+
+    public void setEmpresa(String Empresa) {
+        this.Empresa = Empresa;
+    }
+
+    public int getGlobal() {
+        return Global;
+    }
+
+    public void setGlobal(int Global) {
+        this.Global = Global;
+    }
+    
     
     public void AsignacionCalidad(){
         Vida += (Math.random() < 0.70) ? 10 : 0;
         Striking += (Math.random() < 0.60) ? 10 : 0;
-        Fuerza = (Math.random() < 0.50) ? 10 : 0;
-        Grappling = (Math.random() < 0.40) ? 10 : 0;
+        Fuerza += (Math.random() < 0.50) ? 10 : 0;
+        Grappling += (Math.random() < 0.40) ? 10 : 0;
     }
     
     public void AsignacionGlobal(){

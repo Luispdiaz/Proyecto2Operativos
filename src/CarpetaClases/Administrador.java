@@ -54,9 +54,8 @@ public class Administrador extends Thread{
         Semaforo = Proyecto2Operativos.Semaforo;
     }
 
-    /**
-     * Creates all priority queues and gets the reference of all uiQueues
-     */
+    
+    
     private void CrearColas() {
         ColaInterfazN1 = Proyecto2Operativos.ObjetoInterfaz.getColaN1();
         ColaN1 = new Cola();
@@ -93,7 +92,6 @@ public class Administrador extends Thread{
         }
         ActualizarColasInterfaz();
        
-        // initialize ia
         IA = Proyecto2Operativos.IA;
        
         
@@ -112,28 +110,21 @@ public class Administrador extends Thread{
             while (Ejecucion) {
            
             
-//            this.mutex.acquire();
-            // try to return booster chapter
             this.SalidaRefuerzo(ColaRecuperacionN, ColaN1, ColaN2, ColaN3);
             this.SalidaRefuerzo(ColaRecuperacionS, ColaS1, ColaS2, ColaS3);
 
             if (ContadorAdmin >= 2) {
-                // try add new chapter
                 this.AgregarPersonajeAleatorio("N");
                 this.AgregarPersonajeAleatorio("S");
-                // reset administrator's counter
                 ContadorAdmin = 0;
             }
 
-            // get chapters
             Personaje PersonajeN = this.DespacharPersonajes(ColaN1, ColaN2, ColaN3);
             Personaje PersonajeS = this.DespacharPersonajes(ColaS1, ColaS2, ColaS3);
 
-            // set chapters to IA
             IA.PersonajeN = PersonajeN;
             IA.PersonajeS = PersonajeS;
 
-            // reset selected chapter's counter
             if (PersonajeN != null) {
                 PersonajeN.Contador = 0;
             }
@@ -145,22 +136,16 @@ public class Administrador extends Thread{
             //Pendiente
             Thread.sleep(500);
             this.Semaforo.acquire();
-
-            // add one to chapter counters and check if privilege rises
             this.ModificarContador(ColaN2);
             this.ModificarContador(ColaN3);
             this.ModificarContador(ColaS2);
             this.ModificarContador(ColaS3);
          
 
-            // add one to administrator's counter
             ContadorAdmin++;
             this.ActualizarColasInterfaz();
-//            this.mutex.release();
         }
            
-//            Thread.sleep(100);
-            
         } catch (InterruptedException ex) {
             System.out.println("Error");
         }
@@ -168,21 +153,15 @@ public class Administrador extends Thread{
    
    private void ModificarContador(Cola Cola1) {
       
-//        Node pointer = queue.getLast();   
         int Iteraciones = Cola1.Tamano;
         int Indice = 0;
         
         while (Indice < Iteraciones) {
-            // add 1 to the counter
            
             Personaje Personaje1 = Cola1.pFirst.Informacion;
             
             Personaje1.Contador++;
-//            System.out.println("Capitulo: " + chapter.getPcb().getCompleteId()+ " counter: " + chapter.getCounter());
-
-            // if the counter is greater equal to 8 then move up priority
             if (Personaje1.Contador >= 8) {
-                // if priority is greater than 1
                 if (Personaje1.Prioridad > 1) {
                     Personaje1.Prioridad--;
                     if (Personaje1.Empresa.equals("N")) {
@@ -242,17 +221,13 @@ public class Administrador extends Thread{
     private void CrearPersonaje(String Empresa) {
         if (Empresa.equals("N")) {
             IndiceN ++;
-            // create new chapter
             Personaje nuevo = new Personaje(IndiceN, Empresa);
-            // move chapter to its queue
             this.EncolarPersonaje(nuevo, ColaN1, ColaN2, ColaN3);
         }
 
         if (Empresa.equals("S")) {
             IndiceS += 1;
-            // create new chapter
             Personaje nuevo = new Personaje(IndiceS, Empresa);
-            // move chapter to its queue
             this.EncolarPersonaje(nuevo, ColaS1, ColaS2, ColaS3);
         }
 
@@ -294,6 +269,15 @@ public class Administrador extends Thread{
         }
         if (PersonajeS != null) {
             EncolarPersonaje(PersonajeS, ColaS1, ColaS2, ColaS3);
+        }
+    }
+    
+    public void DevolverCapitulosRecuperacion(Personaje PersonajeN, Personaje PersonajeS) {
+        if (PersonajeN != null) {
+            EncolarPersonajeRecuperacion(PersonajeN, ColaRecuperacionN);
+        }
+        if (PersonajeS != null) {
+            EncolarPersonajeRecuperacion(PersonajeS, ColaRecuperacionS);
         }
     }
     }
