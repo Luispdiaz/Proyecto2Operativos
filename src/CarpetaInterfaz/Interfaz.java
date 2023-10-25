@@ -5,10 +5,12 @@
 package CarpetaInterfaz;
 ;
 
+
+import CarpetaClases.Proyecto2Operativos;
+
+
 import CarpetaClases.Personaje;
-
 import javax.swing.border.LineBorder;
-
 import javax.swing.border.Border;
 import java.awt.Color;
 import javax.swing.JLabel;
@@ -34,6 +36,14 @@ public final class Interfaz extends javax.swing.JFrame {
         this.getGanadoresN().setForeground(Color.BLACK);
         Border border1 = new LineBorder(new Color(139, 69, 19), 2); 
         this.getGanadoresN().setBorder(border1);
+        this.ColaN1.getTitulo().setText("Cola de Prioridad 1");
+        this.ColaN2.getTitulo().setText("Cola de Prioridad 2");
+        this.ColaN3.getTitulo().setText("Cola de Prioridad 3");
+        this.ColaS1.getTitulo().setText("Cola de Prioridad 1");
+        this.ColaS2.getTitulo().setText("Cola de Prioridad 2");
+        this.ColaS3.getTitulo().setText("Cola de Prioridad 3");
+        this.ColaRecuperacionN.getTitulo().setText("Cola de Recuperacion");
+        this.ColaRecuperacionS.getTitulo().setText("Cola de Recuperacion");
     }
 
     /**
@@ -54,7 +64,7 @@ public final class Interfaz extends javax.swing.JFrame {
         ColaRecuperacionS = new CarpetaInterfaz.ColaInterfaz();
         ColaS2 = new CarpetaInterfaz.ColaInterfaz();
         ColaS3 = new CarpetaInterfaz.ColaInterfaz();
-        jSlider1 = new javax.swing.JSlider();
+        SliderTiempo = new javax.swing.JSlider();
         GanadoresN = new javax.swing.JLabel();
         GanadoresS = new javax.swing.JLabel();
         EstadoIA = new javax.swing.JLabel();
@@ -76,16 +86,21 @@ public final class Interfaz extends javax.swing.JFrame {
         jPanel1.add(ColaS2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 270, -1, -1));
         jPanel1.add(ColaS3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 390, -1, -1));
 
-        jSlider1.setMajorTickSpacing(1);
-        jSlider1.setMaximum(21);
-        jSlider1.setMinimum(1);
-        jSlider1.setPaintLabels(true);
-        jSlider1.setPaintTicks(true);
-        jSlider1.setValue(11);
-        jSlider1.setBorder(new javax.swing.border.MatteBorder(null));
-        jPanel1.add(jSlider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 740, 370, -1));
-        jSlider1.getAccessibleContext().setAccessibleName("");
-        jSlider1.getAccessibleContext().setAccessibleDescription("");
+        SliderTiempo.setMajorTickSpacing(1);
+        SliderTiempo.setMaximum(21);
+        SliderTiempo.setMinimum(1);
+        SliderTiempo.setPaintLabels(true);
+        SliderTiempo.setPaintTicks(true);
+        SliderTiempo.setValue(11);
+        SliderTiempo.setBorder(new javax.swing.border.MatteBorder(null));
+        SliderTiempo.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                SliderTiempoStateChanged(evt);
+            }
+        });
+        jPanel1.add(SliderTiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 740, 370, -1));
+        SliderTiempo.getAccessibleContext().setAccessibleName("");
+        SliderTiempo.getAccessibleContext().setAccessibleDescription("");
 
         GanadoresN.setBackground(new java.awt.Color(245, 230, 200));
         GanadoresN.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
@@ -117,6 +132,10 @@ public final class Interfaz extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void SliderTiempoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SliderTiempoStateChanged
+        Proyecto2Operativos.IA.setTiempo(this.SliderTiempo.getValue() * 1000);
+    }//GEN-LAST:event_SliderTiempoStateChanged
 
     /**
      * @param args the command line arguments
@@ -239,8 +258,8 @@ public final class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel GanadoresS;
     private CarpetaInterfaz.PersonajeInterfaz PersonajeN;
     private CarpetaInterfaz.PersonajeInterfaz PersonajeS;
+    private javax.swing.JSlider SliderTiempo;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSlider jSlider1;
     // End of variables declaration//GEN-END:variables
 }

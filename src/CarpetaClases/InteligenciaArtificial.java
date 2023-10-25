@@ -35,7 +35,7 @@ public class InteligenciaArtificial extends Thread{
 
     public InteligenciaArtificial() {
         this.Administrador = Proyecto2Operativos.Admin;
-        this.Tiempo = 5 * 1000;
+        this.Tiempo = 10 * 1000;
         this.Semaforo = Proyecto2Operativos.Semaforo;
         this.Ganadores = new String[100];
         this.contadorGanadores = 0;
@@ -56,6 +56,7 @@ public class InteligenciaArtificial extends Thread{
 
                 } else {
                     ActualizarPersonajesInterfaz();
+                    Administrador.ActualizarColasInterfaz();
                     Proyecto2Operativos.ObjetoInterfaz.setEstadoIA("Dictaminando el Ganador");
                     PersonajeInterfazN.CambiarIconoPelea();
                     PersonajeInterfazS.CambiarIconoPelea();
@@ -139,9 +140,14 @@ public class InteligenciaArtificial extends Thread{
                     Thread.sleep(Tiempo);
                     Proyecto2Operativos.ObjetoInterfaz.setEstadoIA("Enviando a Reforzar");
                     Administrador.DevolverCapitulosRecuperacion(PersonajeN, PersonajeS);
+                    ActualizarPersonajesInterfaz();
+                    Administrador.ActualizarColasInterfaz();
                     Thread.sleep(5000);
                     }
                     Proyecto2Operativos.ObjetoInterfaz.setEstadoIA("Esperando Contrincantes");
+                    PersonajeInterfazN.CambiarIconoEsperar();
+                    PersonajeInterfazS.CambiarIconoEsperar();
+                    Thread.sleep(3000);
                 }
                 this.Semaforo.release();
                 Thread.sleep(100);
@@ -156,4 +162,13 @@ public class InteligenciaArtificial extends Thread{
         this.PersonajeInterfazN.ActualizarPersonjaeInterfaz(PersonajeN);
         this.PersonajeInterfazS.ActualizarPersonjaeInterfaz(PersonajeS);
     }
+
+    public int getTiempo() {
+        return Tiempo;
+    }
+
+    public void setTiempo(int Tiempo) {
+        this.Tiempo = Tiempo;
+    }
+    
 }

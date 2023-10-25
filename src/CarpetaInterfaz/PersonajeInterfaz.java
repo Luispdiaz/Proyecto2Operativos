@@ -56,6 +56,13 @@ public class PersonajeInterfaz extends javax.swing.JPanel {
         this.IndicadorResultado.setIcon(new ImageIcon("src\\Imagenes\\pelea.png"));
     }
     
+    public void CambiarIconoEsperar() {
+        this.Foto.setIcon(new ImageIcon("src\\Imagenes\\VAyR.gif"));
+        this.Poder.setText("--");
+        this.ID.setText("--");
+         this.IndicadorResultado.setIcon(null);
+    }
+    
     public void CambiarIconoGanador() {
         this.IndicadorResultado.setIcon(new ImageIcon("src\\Imagenes\\ganador.png"));
         
@@ -108,6 +115,7 @@ public class PersonajeInterfaz extends javax.swing.JPanel {
         ID.setText("---");
         jPanel1.add(ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
 
+        Foto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Foto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/8S - copia.png"))); // NOI18N
         jPanel1.add(Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 360, 400));
 
