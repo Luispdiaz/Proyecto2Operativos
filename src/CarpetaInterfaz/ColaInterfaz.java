@@ -19,6 +19,7 @@ public final class ColaInterfaz extends javax.swing.JPanel {
      */
     
     public ColaInterfaz() {
+        
         initComponents();
     }
     public ColaInterfaz(String Nombre) {
@@ -56,6 +57,8 @@ public final class ColaInterfaz extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(245, 230, 200));
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(139, 69, 19), 2));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Titulo.setText("Nombre de la Cola");

@@ -5,19 +5,35 @@
 package CarpetaInterfaz;
 ;
 
+import CarpetaClases.Personaje;
+
+import javax.swing.border.LineBorder;
+
+import javax.swing.border.Border;
+import java.awt.Color;
 import javax.swing.JLabel;
 
 /**
  *
  * @author Luisp
  */
-public class Interfaz extends javax.swing.JFrame {
+public final class Interfaz extends javax.swing.JFrame {
 
     /**
      * Creates new form Interfaz
      */
     public Interfaz() {
         initComponents();
+        this.getGanadoresS().setOpaque(true); 
+        this.getGanadoresS().setBackground(new Color(245, 230, 200)); 
+        this.getGanadoresS().setForeground(Color.BLACK);
+        Border border = new LineBorder(new Color(139, 69, 19), 2); 
+        this.getGanadoresS().setBorder(border);
+        this.getGanadoresN().setOpaque(true);
+        this.getGanadoresN().setBackground(new Color(245, 230, 200)); 
+        this.getGanadoresN().setForeground(Color.BLACK);
+        Border border1 = new LineBorder(new Color(139, 69, 19), 2); 
+        this.getGanadoresN().setBorder(border1);
     }
 
     /**
@@ -39,26 +55,26 @@ public class Interfaz extends javax.swing.JFrame {
         ColaS2 = new CarpetaInterfaz.ColaInterfaz();
         ColaS3 = new CarpetaInterfaz.ColaInterfaz();
         jSlider1 = new javax.swing.JSlider();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        GanadoresN = new javax.swing.JLabel();
+        GanadoresS = new javax.swing.JLabel();
         EstadoIA = new javax.swing.JLabel();
-        PersonajeS = new CarpetaInterfaz.PersonajeInterfaz();
         PersonajeN = new CarpetaInterfaz.PersonajeInterfaz();
+        PersonajeS = new CarpetaInterfaz.PersonajeInterfaz();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(ColaN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
-        jPanel1.add(ColaRecuperacionN, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, -1, -1));
-        jPanel1.add(ColaN2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, -1, -1));
-        jPanel1.add(ColaN3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, -1, -1));
-        jPanel1.add(ColaS1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 40, -1, -1));
-        jPanel1.add(ColaRecuperacionS, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 400, -1, -1));
-        jPanel1.add(ColaS2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 160, -1, -1));
-        jPanel1.add(ColaS3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 280, -1, -1));
+        jPanel1.add(ColaN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, -1));
+        jPanel1.add(ColaRecuperacionN, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, -1, -1));
+        jPanel1.add(ColaN2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, -1));
+        jPanel1.add(ColaN3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, -1, -1));
+        jPanel1.add(ColaS1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 150, -1, -1));
+        jPanel1.add(ColaRecuperacionS, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 510, -1, -1));
+        jPanel1.add(ColaS2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 270, -1, -1));
+        jPanel1.add(ColaS3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 390, -1, -1));
 
         jSlider1.setMajorTickSpacing(1);
         jSlider1.setMaximum(21);
@@ -67,28 +83,37 @@ public class Interfaz extends javax.swing.JFrame {
         jSlider1.setPaintTicks(true);
         jSlider1.setValue(11);
         jSlider1.setBorder(new javax.swing.border.MatteBorder(null));
-        jPanel1.add(jSlider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 510, 370, -1));
+        jPanel1.add(jSlider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 740, 370, -1));
         jSlider1.getAccessibleContext().setAccessibleName("");
         jSlider1.getAccessibleContext().setAccessibleDescription("");
 
-        jLabel1.setText("---");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 530, 50, -1));
+        GanadoresN.setBackground(new java.awt.Color(245, 230, 200));
+        GanadoresN.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        GanadoresN.setForeground(new java.awt.Color(0, 0, 0));
+        GanadoresN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        GanadoresN.setText("Peleas Ganadas: 0");
+        jPanel1.add(GanadoresN, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 650, 240, -1));
 
-        jLabel2.setText("Peleas Ganadas:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 530, 100, -1));
+        GanadoresS.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        GanadoresS.setForeground(new java.awt.Color(0, 0, 0));
+        GanadoresS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        GanadoresS.setText("Peleas Ganadas: 0");
+        jPanel1.add(GanadoresS, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 650, 230, -1));
 
-        jLabel3.setText("---");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 530, 50, -1));
-
-        jLabel4.setText("Peleas Ganadas:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 530, 100, -1));
-
+        EstadoIA.setBackground(new java.awt.Color(255, 255, 255));
+        EstadoIA.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        EstadoIA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         EstadoIA.setText("Estado de la IA");
-        jPanel1.add(EstadoIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 400, 90, -1));
-        jPanel1.add(PersonajeS, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 100, -1, -1));
-        jPanel1.add(PersonajeN, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 100, -1, -1));
+        jPanel1.add(EstadoIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, 480, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1460, 580));
+        PersonajeN.setBackground(new java.awt.Color(102, 255, 102));
+        jPanel1.add(PersonajeN, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 390, -1));
+        jPanel1.add(PersonajeS, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 100, 390, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/dojo.png"))); // NOI18N
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1920, 1080));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1920, 1080));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -133,7 +158,23 @@ public class Interfaz extends javax.swing.JFrame {
     }
 
     public void setEstadoIA(String EstadoIA) {
-        this.getEstadoIA().setText(EstadoIA);
+    this.getEstadoIA().setText("Estado de la IA → " + EstadoIA);
+    this.getEstadoIA().setOpaque(true); 
+    getEstadoIA().setBackground(new Color(245, 230, 200)); 
+    this.getEstadoIA().setForeground(Color.BLACK);
+    Border border = new LineBorder(new Color(139, 69, 19), 2); 
+    this.getEstadoIA().setBorder(border);
+        
+    }
+    
+    public void ActualizarGanadores(Personaje Person, int contador){
+    char primerCaracter = Person.getEmpresa().charAt(0);
+    if(primerCaracter=='N'){
+    this.getGanadoresN().setText("Peleas Ganadas: " + contador);
+   
+    } else{
+    this.getGanadoresS().setText("Peleas Ganadas: " + contador);
+    }
     }
 
     public PersonajeInterfaz getPersonajeN() {
@@ -142,6 +183,14 @@ public class Interfaz extends javax.swing.JFrame {
 
     public PersonajeInterfaz getPersonajeS() {
         return PersonajeS;
+    }
+
+    public JLabel getGanadoresN() {
+        return GanadoresN;
+    }
+
+    public final JLabel getGanadoresS() {
+        return GanadoresS;
     }
 
     public ColaInterfaz getColaN1() {
@@ -186,12 +235,11 @@ public class Interfaz extends javax.swing.JFrame {
     private CarpetaInterfaz.ColaInterfaz ColaS2;
     private CarpetaInterfaz.ColaInterfaz ColaS3;
     private javax.swing.JLabel EstadoIA;
+    private javax.swing.JLabel GanadoresN;
+    private javax.swing.JLabel GanadoresS;
     private CarpetaInterfaz.PersonajeInterfaz PersonajeN;
     private CarpetaInterfaz.PersonajeInterfaz PersonajeS;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSlider jSlider1;
     // End of variables declaration//GEN-END:variables

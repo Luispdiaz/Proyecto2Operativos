@@ -135,7 +135,7 @@ public class Administrador extends Thread{
             this.Semaforo.release();
             //Pendiente
             Thread.sleep(500);
-            this.Semaforo.acquire();
+            Semaforo.acquire();
             this.ModificarContador(ColaN2);
             this.ModificarContador(ColaN3);
             this.ModificarContador(ColaS2);
@@ -144,6 +144,7 @@ public class Administrador extends Thread{
 
             ContadorAdmin++;
             this.ActualizarColasInterfaz();
+          //  this.Semaforo.release();
         }
            
         } catch (InterruptedException ex) {
@@ -159,6 +160,7 @@ public class Administrador extends Thread{
         while (Indice < Iteraciones) {
            
             Personaje Personaje1 = Cola1.pFirst.Informacion;
+            Cola1.Desencolar();
             
             Personaje1.Contador++;
             if (Personaje1.Contador >= 8) {
@@ -185,11 +187,19 @@ public class Administrador extends Thread{
     }
    private Personaje DespacharPersonajes(Cola Cola1, Cola Cola2, Cola Cola3) {
         if (!Cola1.esVacia()) {
-            return Cola1.pFirst.Informacion;
+            Personaje var = Cola1.pFirst.Informacion;
+            Cola1.Desencolar();
+            return var;
         } else if (!Cola2.esVacia()) {
-            return Cola2.pFirst.Informacion;
+            
+            Personaje var = Cola2.pFirst.Informacion;
+            Cola2.Desencolar();
+            return var;
+            
         } else if (!Cola3.esVacia()) {
-            return Cola2.pFirst.Informacion;
+            Personaje var = Cola3.pFirst.Informacion;
+            Cola3.Desencolar();
+            return var;
         }
         return null;
     }
@@ -210,10 +220,12 @@ public class Administrador extends Thread{
         int result = rand.nextInt(100);
         if (result <= 40) {
             Personaje perso = Recuperacion.pFirst.Informacion;
+            Recuperacion.Desencolar();
             perso.Prioridad = 1;
             this.EncolarPersonaje(perso, Cola1, Cola2, Cola3);
         } else {
             Personaje perso = Recuperacion.pFirst.Informacion;
+            Recuperacion.Desencolar();
             Recuperacion.Encolar(perso);
         }
     }
@@ -222,12 +234,18 @@ public class Administrador extends Thread{
         if (Empresa.equals("N")) {
             IndiceN ++;
             Personaje nuevo = new Personaje(IndiceN, Empresa);
+            nuevo.AsignacionCalidad();
+            nuevo.AsignacionGlobal();
+            nuevo.VerificacionCalidad();
             this.EncolarPersonaje(nuevo, ColaN1, ColaN2, ColaN3);
         }
 
         if (Empresa.equals("S")) {
             IndiceS += 1;
             Personaje nuevo = new Personaje(IndiceS, Empresa);
+            nuevo.AsignacionCalidad();
+            nuevo.AsignacionGlobal();
+            nuevo.VerificacionCalidad();
             this.EncolarPersonaje(nuevo, ColaS1, ColaS2, ColaS3);
         }
 

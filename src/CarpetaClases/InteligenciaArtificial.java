@@ -18,6 +18,8 @@ public class InteligenciaArtificial extends Thread{
     boolean Ejecucion = true;
     String[] Ganadores;
     int contadorGanadores;
+    int GanadoresN;
+    int GanadoresS;
     Personaje PersonajeN;
     Personaje PersonajeS;
 
@@ -33,10 +35,12 @@ public class InteligenciaArtificial extends Thread{
 
     public InteligenciaArtificial() {
         this.Administrador = Proyecto2Operativos.Admin;
-        this.Tiempo = 10 * 1000;
+        this.Tiempo = 5 * 1000;
         this.Semaforo = Proyecto2Operativos.Semaforo;
         this.Ganadores = new String[100];
         this.contadorGanadores = 0;
+        this.GanadoresN = 0;
+        this.GanadoresS = 0;
     }
     
     public void run() {
@@ -52,8 +56,8 @@ public class InteligenciaArtificial extends Thread{
 
                 } else {
                     ActualizarPersonajesInterfaz();
-                    Proyecto2Operativos.ObjetoInterfaz.setEstadoIA("Pelea");
-                    PersonajeInterfazS.CambiarIconoPelea();
+                    Proyecto2Operativos.ObjetoInterfaz.setEstadoIA("Dictaminando el Ganador");
+                    PersonajeInterfazN.CambiarIconoPelea();
                     PersonajeInterfazS.CambiarIconoPelea();
 
                     int result = rand.nextInt(100);
@@ -63,20 +67,26 @@ public class InteligenciaArtificial extends Thread{
                         PersonajeInterfazS.CambiarIcono(PersonajeS);
                         Thread.sleep(Tiempo);
                         Ganadores[contadorGanadores] = PersonajeN.id;
+                        GanadoresN++;
+                        Proyecto2Operativos.ObjetoInterfaz.ActualizarGanadores(PersonajeN, GanadoresN);
                         PersonajeInterfazN.CambiarIconoGanador();
                         PersonajeInterfazS.CambiarIconoPerdedor();
-                        Proyecto2Operativos.ObjetoInterfaz.setEstadoIA("Fin");
+                        Proyecto2Operativos.ObjetoInterfaz.setEstadoIA("Declarando al Ganador");
                         ActualizarPersonajesInterfaz();
+                        Thread.sleep(5000);
                         }
                         else if(PersonajeN.Global<PersonajeS.Global){
                         PersonajeInterfazN.CambiarIcono(PersonajeN);
                         PersonajeInterfazS.CambiarIcono(PersonajeS);
                         Thread.sleep(Tiempo);
                         Ganadores[contadorGanadores] = PersonajeS.id;
+                        GanadoresS++;
+                        Proyecto2Operativos.ObjetoInterfaz.ActualizarGanadores(PersonajeS, GanadoresS);
                         PersonajeInterfazS.CambiarIconoGanador();
                         PersonajeInterfazN.CambiarIconoPerdedor();
-                        Proyecto2Operativos.ObjetoInterfaz.setEstadoIA("Fin");
+                        Proyecto2Operativos.ObjetoInterfaz.setEstadoIA("Declarando al Ganador");
                         ActualizarPersonajesInterfaz();
+                        Thread.sleep(5000);
                         }
                         else{
                             if(PersonajeS.Global<19){
@@ -85,10 +95,14 @@ public class InteligenciaArtificial extends Thread{
                                 PersonajeInterfazS.CambiarIcono(PersonajeS);
                                 Thread.sleep(Tiempo);
                                 Ganadores[contadorGanadores] = PersonajeS.id;
+                                GanadoresS++;
+                                Proyecto2Operativos.ObjetoInterfaz.ActualizarGanadores(PersonajeS, GanadoresS);
                                 PersonajeInterfazS.CambiarIconoGanador();
                                 PersonajeInterfazN.CambiarIconoPerdedor();
-                                Proyecto2Operativos.ObjetoInterfaz.setEstadoIA("Fin");
+                                
+                                Proyecto2Operativos.ObjetoInterfaz.setEstadoIA("Declarando al Ganador");
                                 ActualizarPersonajesInterfaz();
+                                Thread.sleep(5000);
                                 }
                             else{
                                 PersonajeN.Global--;  
@@ -96,10 +110,13 @@ public class InteligenciaArtificial extends Thread{
                                 PersonajeInterfazS.CambiarIcono(PersonajeS);
                                 Thread.sleep(Tiempo);
                                 Ganadores[contadorGanadores] = PersonajeS.id;
+                                GanadoresS++;
+                                Proyecto2Operativos.ObjetoInterfaz.ActualizarGanadores(PersonajeS, GanadoresS);
                                 PersonajeInterfazS.CambiarIconoGanador();
                                 PersonajeInterfazN.CambiarIconoPerdedor();
-                                Proyecto2Operativos.ObjetoInterfaz.setEstadoIA("Fin");
+                                Proyecto2Operativos.ObjetoInterfaz.setEstadoIA("Declarando al Ganador");
                                 ActualizarPersonajesInterfaz();
+                                Thread.sleep(5000);
                             }
                         
                         }
@@ -108,23 +125,26 @@ public class InteligenciaArtificial extends Thread{
                     PersonajeInterfazN.CambiarIcono(PersonajeN);
                     PersonajeInterfazS.CambiarIcono(PersonajeS);
                     Thread.sleep(Tiempo);
-                    Proyecto2Operativos.ObjetoInterfaz.setEstadoIA("Fin");
+                    Proyecto2Operativos.ObjetoInterfaz.setEstadoIA("Declarando al Ganador");
                      PersonajeInterfazN.CambiarIconoEmpate();
                      PersonajeInterfazS.CambiarIconoEmpate();
                      Administrador.DevolverCapitulos(PersonajeN, PersonajeS);
                      ActualizarPersonajesInterfaz();
+                     Administrador.ActualizarColasInterfaz();
+                     Thread.sleep(5000);
                     }
                      else { // 33%
                     PersonajeInterfazN.CambiarIcono(PersonajeN);
                     PersonajeInterfazS.CambiarIcono(PersonajeS);
                     Thread.sleep(Tiempo);
-                    Proyecto2Operativos.ObjetoInterfaz.setEstadoIA("Reforzar");
+                    Proyecto2Operativos.ObjetoInterfaz.setEstadoIA("Enviando a Reforzar");
                     Administrador.DevolverCapitulosRecuperacion(PersonajeN, PersonajeS);
-                    ActualizarPersonajesInterfaz();
+                    Thread.sleep(5000);
                     }
-                    Proyecto2Operativos.ObjetoInterfaz.setEstadoIA("Esperando");
+                    Proyecto2Operativos.ObjetoInterfaz.setEstadoIA("Esperando Contrincantes");
                 }
                 this.Semaforo.release();
+                Thread.sleep(100);
             }
         }catch (InterruptedException ex) {
             System.out.println("Error");

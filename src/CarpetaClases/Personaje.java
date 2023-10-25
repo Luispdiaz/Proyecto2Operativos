@@ -78,22 +78,22 @@ public class Personaje {
     int cont = 0;
     String VidaConver = Integer.toString(Vida);
     char VidaConverPosicion = VidaConver.charAt(0);
-    if(VidaConverPosicion==1){
+    if(VidaConverPosicion=='1'){
     cont++;
     }
     String FuerzaConver = Integer.toString(Fuerza);
     char FuerzaConverPosicion = FuerzaConver.charAt(0);
-    if(FuerzaConverPosicion==1){
+    if(FuerzaConverPosicion=='1'){
     cont++;
     }
     String StrikingConver = Integer.toString(Striking);
     char StrikingConverPosicion = StrikingConver.charAt(0);
-    if(StrikingConverPosicion==1){
+    if(StrikingConverPosicion=='1'){
     cont++;
     }
     String GrapplingConver = Integer.toString(Grappling);
     char GrapplingConverPosicion = GrapplingConver.charAt(0);
-    if(GrapplingConverPosicion==1){
+    if(GrapplingConverPosicion=='1'){
     cont++;
     }
     
