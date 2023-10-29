@@ -5,6 +5,7 @@
 package CarpetaClases;
 
 import CarpetaInterfaz.Interfaz;
+import CarpetaInterfaz.InterfazInicio;
 import java.util.concurrent.Semaphore;
 
 /**
@@ -15,6 +16,7 @@ public class Proyecto2Operativos {
     
     public static Semaphore Semaforo = new Semaphore(1);
     public static Interfaz ObjetoInterfaz = new Interfaz();
+    public static InterfazInicio Interfaz = new InterfazInicio();
     public static Administrador Admin = new Administrador();
     public static InteligenciaArtificial IA = new InteligenciaArtificial();
     
@@ -23,8 +25,8 @@ public class Proyecto2Operativos {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ObjetoInterfaz.setVisible(true);
-        Admin.Inicio();
+        Interfaz.setLocationRelativeTo(null);
+        Interfaz.setVisible(true);
     }
     
 }
