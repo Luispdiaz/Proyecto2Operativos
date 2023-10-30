@@ -72,7 +72,6 @@ public class Cola {
                 } else {
                          node.pNext = node.pNext.pNext;
                 }
-                
                 }
             }
             this.Tamano--;
